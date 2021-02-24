@@ -7,12 +7,11 @@ Movie.create!([
       is in ruins. With the help of remaining allies, the Avengers assemble
       once more in order to undo Thanos' actions and restore order to the universe.
     }.squish,
-    released_on: "2019-04-26",
+    released_on: "2020-04-26",
     rating: 'PG-13',
     total_gross: 1_223_641_414,
     director: 'Anthony Russo',
-    duration: '181 min',
-    image_file_name: 'avengers-end-game.png'
+    duration: '181 min'
   },
   {
     title: 'Captain Marvel',
@@ -20,12 +19,11 @@ Movie.create!([
     %{
       Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.
     }.squish,
-    released_on: "2019-03-08",
+    released_on: "2020-03-08",
     rating: 'PG-13',
     total_gross: 1_110_662_849,
     director: 'Anna Boden',
-    duration: '124 min',
-    image_file_name: 'captain-marvel.png'
+    duration: '124 min'
   },
   {
     title: 'Black Panther',
@@ -33,12 +31,11 @@ Movie.create!([
     %{
       T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past.
     }.squish,
-    released_on: "2018-02-16",
+    released_on: "2020-02-16",
     rating: 'PG-13',
     total_gross: 1_346_913_161,
     director: 'Ryan Coogler',
-    duration: '134 min',
-    image_file_name: 'black-panther.png'
+    duration: '134 min'
   },
   {
     title: 'Avengers: Infinity War',
@@ -50,8 +47,7 @@ Movie.create!([
     rating: 'PG-13',
     total_gross: 2_048_359_754,
     director: 'Anthony Russo',
-    duration: '149 min',
-    image_file_name: 'avengers-infinity-war.png'
+    duration: '149 min'
   },
   {
     title: 'Green Lantern',
@@ -61,10 +57,9 @@ Movie.create!([
     }.squish,
     released_on: "2011-06-17",
     rating: 'PG-13',
-    total_gross: 219_851_172,
+    total_gross: 219_851,
     director: 'Martin Campbell',
-    duration: '114 min',
-    image_file_name: 'green-lantern.png'
+    duration: '114 min'
   },
   {
     title: 'Fantastic Four',
@@ -74,10 +69,9 @@ Movie.create!([
     }.squish,
     released_on: "2015-08-07",
     rating: 'PG-13',
-    total_gross: 168_257_860,
+    total_gross: 168_257,
     director: 'Josh Trank',
-    duration: '100 min',
-    image_file_name: 'fantastic-four.png'
+    duration: '100 min'
   },
   {
     title: 'Iron Man',
@@ -91,8 +85,7 @@ Movie.create!([
     rating: 'PG-13',
     total_gross: 585_366_247,
     director: 'Jon Favreau',
-    duration: '126 min',
-    image_file_name: 'ironman.png'
+    duration: '126 min'
   },
   {
     title: 'Superman',
@@ -106,8 +99,7 @@ Movie.create!([
     rating: 'PG',
     total_gross: 300_451_603,
     director: 'Richard Donner',
-    duration: '143 min',
-    image_file_name: 'superman.png'
+    duration: '143 min'
   },
   {
     title: 'Spider-Man',
@@ -120,10 +112,9 @@ Movie.create!([
     }.squish,
     released_on: "2002-05-03",
     rating: 'PG-13',
-    total_gross: 825_025_036,
+    total_gross: 825_025,
     director: 'Sam Raimi',
-    duration: '121 min',
-    image_file_name: 'spiderman.png'
+    duration: '121 min'
   },
   {
     title: 'Batman',
@@ -136,8 +127,7 @@ Movie.create!([
     rating: 'PG-13',
     total_gross: 411_348_924,
     director: 'Tim Burton',
-    duration: '126 min',
-    image_file_name: 'batman.png'
+    duration: '126 min'
   },
   {
     title: "Catwoman",
@@ -145,12 +135,11 @@ Movie.create!([
     %{
       Patience Philips seems destined to spend her life apologizing for taking up space. Despite her artistic ability she has a more than respectable career as a graphic designer.
     }.squish,
-    released_on: "2004-07-23",
+    released_on: "2023-07-23",
     rating: "PG-13",
     total_gross: 82_102_379,
     director: "Jean-Christophe 'Pitof' Comar",
-    duration: "101 min",
-    image_file_name: "catwoman.png"
+    duration: "101 min"
   },
   {
     title: "Wonder Woman",
@@ -158,13 +147,19 @@ Movie.create!([
     %{
       When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny.
     }.squish,
-    released_on: "2017-06-02",
+    released_on: "2022-06-02",
     rating: "PG-13",
     total_gross: 821_847_012,
     director: "Patty Jenkins",
-    duration: "141 min",
-    image_file_name: "wonder-woman.png"
+    duration: "141 min"
   }
+])
+
+User.create!([
+  {name: "Adi", email: "adi@example.com", password: "secret12345", admin: true},
+  {name: "Aki", email: "aki@example.com", password: "secret12345"},
+  {name: "Ned", email: "ned@example.com", password: "secret12345"},
+  {name: "San", email: "san@example.com", password: "secret12345"}
 ])
 
 Genre.create(name: "Action")
@@ -177,3 +172,22 @@ Genre.create(name: "Documentary")
 Genre.create(name: "Adventure")
 Genre.create(name: "Animation")
 Genre.create(name: "Sci-Fi")
+
+[
+  ["Avengers: Endgame", "avengers-end-game.png"],
+  ["Captain Marvel", "captain-marvel.png"],
+  ["Black Panther", "black-panther.png"],
+  ["Avengers: Infinity War", "avengers-infinity-war.png"],
+  ["Green Lantern", "green-lantern.png"],
+  ["Fantastic Four", "fantastic-four.png"],
+  ["Iron Man", "ironman.png"],
+  ["Superman", "superman.png"],
+  ["Spider-Man", "spiderman.png"],
+  ["Batman", "batman.png"],
+  ["Catwoman", "catwoman.png"],
+  ["Wonder Woman", "wonder-woman.png"]
+].each do |movie_title, file_name|
+  movie = Movie.find_by!(title: movie_title)
+  file = File.open(Rails.root.join("app/assets/images/#{file_name}"))
+  movie.main_image.attach(io: file, filename: file_name)
+end

@@ -7,6 +7,8 @@ class Movie < ApplicationRecord
   has_many :fans, through: :favorites, source: :user
   has_many :characterizations, dependent: :destroy
   has_many :genres, through: :characterizations
+  
+  has_one_attached :main_image
 
   validates :title, presence: true, uniqueness: true
   validates :released_on, :duration, presence: true
@@ -14,11 +16,7 @@ class Movie < ApplicationRecord
   validates :description, length: { minimum: 25 }
 
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
-
-  validates :image_file_name, format: {
-    with: /\w+\.(jpg|png)\z/i,
-    message: "must be a JPG or PNG image"
-  }
+  validate :acceptable_image
 
   RATINGS = %w(G PG PG-13 R NC-17)
   validates :rating, inclusion: { in: RATINGS }
@@ -26,7 +24,7 @@ class Movie < ApplicationRecord
   scope :released, -> { where("released_on < ?", Time.now).order("released_on desc") }
   scope :upcoming, -> { where("released_on > ?", Time.now).order("released_on asc") }
   scope :recent, lambda { |max=5| released.limit(max) }
-  scope :hits, -> { released.where("total_gross >= 300000000").order(total_gross: :desc) }
+  scope :hits, -> { released.where("total_gross >= 1000000000").order(total_gross: :desc) }
   scope :flops, -> { released.where("total_gross < 22500000").order(total_gross: :asc) }
 
   # def self.released
@@ -50,6 +48,19 @@ class Movie < ApplicationRecord
   end
 
   private
+
+  def acceptable_image
+    return unless main_image.attached?
+
+    unless main_image.blob.byte_size <= 1.megabyte
+      errors.add(:main_image, "is too big")
+    end
+  
+    acceptable_types = ["image/jpeg", "image/png"]
+    unless acceptable_types.include?(main_image.content_type)
+      errors.add(:main_image, "must be a JPEG or PNG")
+    end
+  end
 
   def set_slug
     self.slug = title.parameterize
